@@ -3,7 +3,9 @@ const PacienteModels = require("../models/PacienteModels");
 // obtiene todo lso pacintes
 exports.getPacientes = async (req, res, next) => {
   try {
-    const paciente = await PacienteModels.find({});
+    const paciente = await PacienteModels
+    .find({})
+    // .limit(3)   // limitar cuanto valores puedes mostrar un get
     res.json(paciente);
   } catch (error) {
     res.json(error);
