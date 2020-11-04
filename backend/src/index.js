@@ -23,8 +23,10 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(cors())
 
-
+//STATIC PUBLIC
+app.use(express.static(path.join(__dirname, 'public')))
 
 //_* ROUTERS
 app.use('/', require('./routes/paciente'))
+app.use('/', require('./routes/userRouter'))
 
