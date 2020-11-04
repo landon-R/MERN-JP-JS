@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-require('dotenv').config()
+// require('./config')
 
-const db =  process.env.DB
+const db =  process.env.URLDB
 
 mongoose.connect(db, {
     useCreateIndex: true,
@@ -9,5 +9,5 @@ mongoose.connect(db, {
     useNewUrlParser: true,
     useFindAndModify: false
 } , () => {
-    console.log('DB conected exitozamente');
+    console.log('DB mongodb conected exitozamente');
 } )
