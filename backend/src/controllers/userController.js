@@ -31,8 +31,8 @@ exports.createUser = async (req, res) => {
 //_* OBTIENE ALL TODOS LOS USUARIOS
 exports.getUsers = async (req, res) => {
   try {
-    let limit = parseInt(req.query.limit) || 10  
-    let page = parseInt(req.query.page) || 1  
+    let limit = parseInt(req.query.limit) || 10;
+    let page = parseInt(req.query.page) || 1;
     const user = await userModel.paginate({ estado: true }, { limit, page });
     res.json(user);
   } catch (error) {
@@ -43,8 +43,12 @@ exports.getUsers = async (req, res) => {
 //_* OBTIENE A USER
 exports.getUser = async (req, res) => {
   try {
-    const user = await userModel.findById({_id: req.params.idUser})  
-    res.json({ ok: true, user });
+    const user = await userModel.findById({ _id: req.params.idUser });
+    if (!user) {
+      res.json({ ok: false, message: 'Error: el user no existe' });
+    } else {
+      res.json({ ok: true, user });
+    }
   } catch (error) {
     res.json({ ok: false, error });
   }
@@ -53,7 +57,26 @@ exports.getUser = async (req, res) => {
 //_* UPDATE A USER
 exports.updateUser = async (req, res) => {
   try {
-    res.json({ ok: true, error });
+    const user = await userModel.findOneAndUpdate(
+      { _id: req.params.idUser },
+      {
+        userName: req.body.userName,
+        email: req.body.email,
+        password: await bcrypt.hash(req.body.password, 10),
+        estado: req.body.estado,
+        role: req.body.role,
+      },
+      { new: true, runValidators: true }
+    );
+    if (!user) {
+      res.json({ ok: false, message: "Error: el user id no existe" });
+    } else {
+      res.json({
+        ok: true,
+        message: "Success: user update successfully",
+        user,
+      });
+    }
   } catch (error) {
     res.json({ ok: false, error });
   }
@@ -62,7 +85,12 @@ exports.updateUser = async (req, res) => {
 //_* DELETE A USER
 exports.deleteUser = async (req, res) => {
   try {
-    res.json({ ok: true, error });
+    const user = await userModel.findOneAndUpdate({_id: req.params.idUser}, {estado: false}, {new: true} )
+    if (!user) {
+      res.json({ ok: false, message: 'Error: el user id no existe' });
+    } else {
+      res.json({ ok: true, message: 'Success: user deleted successfully', user });
+    }
   } catch (error) {
     res.json({ ok: false, error });
   }
