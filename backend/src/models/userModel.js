@@ -7,7 +7,6 @@ const rolesValidos = {
   message: '{values} no es un role valido'
 }
 
- 
 const userSchema = new Schema(
   {
     userName: { type: String, required: true },
