@@ -30,4 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/paciente'))
 app.use('/', require('./routes/userRouter'))
 app.use('/', require('./routes/loginRouter'))
+app.use('/', require('./routes/loginRouter'))
+app.use('/', require('./routes/dogRouter'))
 

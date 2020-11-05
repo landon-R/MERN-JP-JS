@@ -1,8 +1,10 @@
 const {Router} = require('express');
 
-
+//MIDDLEWARE DE AUTHORIZATION
 const {verificaToken, token_ADMIN_ROLE} = require('../middlewares/authToken')
 
+
+//ROUTERS
 const { createUser, getUsers, getUser, updateUser, deleteUser} = require('../controllers/userController')
 const router = Router()
 
