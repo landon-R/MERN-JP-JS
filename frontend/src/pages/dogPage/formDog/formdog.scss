@@ -1,0 +1,62 @@
+.formdog {
+  max-width: 60%;
+  width: 100%;
+  margin: 1em auto;
+  margin-top: 2.5em;
+  
+  .nav {
+    width: 100%;
+    // background-color: #52a19b;
+    a {
+     width: 50%;
+     text-align: center;
+     color: #fff;
+     font-weight: bold; 
+    }
+
+    a:nth-child(1) {
+      border-radius: 15px 0 0 0;
+      border: 2px solid #fff;
+    }
+    a:nth-child(2) {
+      border-radius: 0 15px 0 0;
+      border: 2px solid #fff;
+    }
+  }
+
+  .images {
+    width: 100%;
+    height: auto;
+    padding: 6em 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+
+
+    img {
+      width: 70%;
+      border-radius: 10%;
+    }
+  }
+
+
+  .formulario {
+    background-color: #fff;
+    form {
+        padding: 2em;
+
+        button {
+            border-radius: 15px;
+        }
+    }
+  }
+}
+
+
+@media screen and (max-width: 900px){
+	.formdog {
+        max-width: 92%;
+        width: 100%;
+        margin-top: 1.5em;
+    }
+}

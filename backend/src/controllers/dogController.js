@@ -24,8 +24,10 @@ exports.createDog = async (req, res) => {
 
 exports.getDogs_all = async (req, res) => {
     try {
-        // const dog = await dogModel
-        res.json({ok: true})
+        let limit = parseInt(req.query.limit) || 10
+        let page = parseInt(req.query.page) || 1
+        const dog = await dogModel.paginate({}, {limit, page})
+        res.json(dog)
     } catch (error) {
         res.json({ok: false, error})
     }

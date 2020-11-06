@@ -7,10 +7,12 @@ import clienteAxios from "./config/axios";
 import PacienteHome from "./pages/PacienteHome";
 import { useState } from "react";
 import { useEffect } from "react";
-import Navigation from "./components/Navigation";
+import Navigation from "./layout/Navigation";
 import NuevaHome from "./pages/NuevaHome";
 import CitaUser from "./pages/CitaUser";
-import ListaDogs from "./pages/ListaDogs";
+//dogs
+import ListaDogs from "./pages/dogPage/ListaDogs";
+import FormDog from "./pages/dogPage/formDog/FormDog";
 
 
 function App() {
@@ -53,6 +55,11 @@ function App() {
               exact={true}
               path="/listadogs"
               component={()=> <ListaDogs />}
+            />
+            <Route
+              exact={true}
+              path="/formdog"
+              component={()=> <FormDog />}
             />
           </Switch>
         </div>
