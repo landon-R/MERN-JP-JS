@@ -13,9 +13,9 @@ exports.createDog = async (req, res) => {
         url: '/upload/'+ req.file.filename,
         size: req.file.size,
       }) 
-      console.log(dog); 
-      console.log(req.file); 
-      res.json({ok: true, dog})
+      console.log(dog);
+      await dog.save()
+      res.json({ok: true, message: 'dog created successfully'})
     } catch (error) {
         res.json({ok: false, error})
     }
@@ -24,6 +24,7 @@ exports.createDog = async (req, res) => {
 
 exports.getDogs_all = async (req, res) => {
     try {
+        // const dog = await dogModel
         res.json({ok: true})
     } catch (error) {
         res.json({ok: false, error})

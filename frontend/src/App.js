@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import Navigation from "./components/Navigation";
 import NuevaHome from "./pages/NuevaHome";
 import CitaUser from "./pages/CitaUser";
+import ListaDogs from "./pages/ListaDogs";
 
 
 function App() {
@@ -47,6 +48,11 @@ function App() {
               exact={true}
               path="/pacientes/:id"
               component={()=> <CitaUser  citas={citas} api={api}/>}
+            />
+            <Route
+              exact={true}
+              path="/listadogs"
+              component={()=> <ListaDogs />}
             />
           </Switch>
         </div>

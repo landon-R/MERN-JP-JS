@@ -14,6 +14,10 @@ exports.loginUser = async (req, res) => {
       res.json({ ok: false, message: "Error: el password es incorrecto " });
     }
 
+    if (userEmail.estado ===  false) {
+      res.json({ ok: false, message: "Warning: el user esta desabilitado " });
+    }
+
     const token = jwt.sign(
       {
         id: userEmail._id,

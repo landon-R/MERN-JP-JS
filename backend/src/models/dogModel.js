@@ -1,4 +1,6 @@
+const mongoosePaginate = require('mongoose-paginate-v2');
 const { Schema, model } = require("mongoose");
+
 
 const dogSchema = new Schema(
   {
@@ -16,5 +18,10 @@ const dogSchema = new Schema(
     timestamps: true,
   }
 );
+
+
+//PAGINATE
+dogSchema.plugin(mongoosePaginate)
+
 
 module.exports = model("Dog", dogSchema);
