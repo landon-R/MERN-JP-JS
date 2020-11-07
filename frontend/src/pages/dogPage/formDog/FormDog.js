@@ -14,7 +14,7 @@ function FormDog() {
          </div>
         </Tab>
         <Tab eventKey="profile" title="Form Dog">
-          <Formulario />
+          <Formulario  />
         </Tab>
       </Tabs>
     </div>

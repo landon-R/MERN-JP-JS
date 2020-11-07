@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import {withRouter } from "react-router-dom"; 
 import { Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import clienteAxios from "../../config/axios";
 
-function Formulario() {
+function Formulario(props) {
   const [datax, setDatax] = useState({
     name: "",
     raza: "",
@@ -39,11 +40,9 @@ function Formulario() {
 
     if (!name || !raza || !precio || !description) {
       Swal.fire({
-        position: 'top-end',
         icon: 'error',
         title: 'todos los campos son necesarios',
         showConfirmButton: true,
-        timer: 1500
       })
     } else {
       const envio = await clienteAxios.post("/dog", formData, {
@@ -51,18 +50,17 @@ function Formulario() {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(envio);
-
+      
       Swal.fire({
         icon: 'success',
         title: envio.data.message,
         showConfirmButton: true,
         timer: 1500
       })
-  
+      props.history.push('/listadogs')  
+      
     }
 
-    
   };
 
   return (
@@ -123,4 +121,4 @@ function Formulario() {
   );
 }
 
-export default Formulario;
+export default withRouter(Formulario)

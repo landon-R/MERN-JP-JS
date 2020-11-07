@@ -11,7 +11,7 @@ import Navigation from "./layout/Navigation";
 import NuevaHome from "./pages/NuevaHome";
 import CitaUser from "./pages/CitaUser";
 //dogs
-import ListaDogs from "./pages/dogPage/ListaDogs";
+import ListaDogs from "./pages/dogPage/listaDogs/ListaDogs";
 import FormDog from "./pages/dogPage/formDog/FormDog";
 
 
@@ -54,12 +54,12 @@ function App() {
             <Route
               exact={true}
               path="/listadogs"
-              component={()=> <ListaDogs />}
+              component={ ListaDogs}
             />
             <Route
               exact={true}
               path="/formdog"
-              component={()=> <FormDog />}
+              component={FormDog}
             />
           </Switch>
         </div>

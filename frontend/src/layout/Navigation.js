@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown} from "react-bootstrap";
 
 function Navigation() {
   return (
@@ -21,6 +21,8 @@ function Navigation() {
           <NavDropdown title="Dog show" id="basic-nav-dropdown">
             <Link to="/formdog"  className="dropdown-item" >Crear dog</Link>
             <Link to="/listadogs" className="dropdown-item">Lista dogs</Link>
+        
+ 
             <NavDropdown.Divider />
             <NavDropdown.Item href="/formdog">
               Separated link

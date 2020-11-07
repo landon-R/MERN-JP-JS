@@ -8,15 +8,15 @@ function CardDog(props) {
     let url =  process.env.REACT_APP_BACKEND_URL
  
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "16rem", margin: '1em' }}>
       <Card.Img variant="top" src={`${url}${e_dog.url}`} />
       <Card.Body>
         <Card.Title> {e_dog.name} </Card.Title>
-        <Card.Title> {e_dog.raza} </Card.Title>
-        <Card.Title> {e_dog.precio} </Card.Title>
-        <Card.Text>
+        <h6> {e_dog.raza} </h6>
+        <h6> {e_dog.precio} </h6>
+        {/* <Card.Text>
           {e_dog.description}
-        </Card.Text>
+        </Card.Text> */}
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
