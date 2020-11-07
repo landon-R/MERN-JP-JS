@@ -8,7 +8,7 @@ function CardDog(props) {
     let url =  process.env.REACT_APP_BACKEND_URL
  
   return (
-    <Card style={{ width: "16rem", margin: '1em' }}>
+    <Card style={{ width: "16.3rem", margin: '1em' }}>
       <Card.Img variant="top" src={`${url}${e_dog.url}`} />
       <Card.Body>
         <Card.Title> {e_dog.name} </Card.Title>
